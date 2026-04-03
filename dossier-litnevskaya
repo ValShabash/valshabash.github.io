@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Досье: Юлия Литневская — Шабаш Валькирии</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Georgia', 'Times New Roman', serif; background: #0e0e0e; color: #e6e6e6; line-height: 1.6; padding: 20px; }
+    .container { max-width: 900px; margin: 0 auto; background: #1a1a1a; border-radius: 16px; padding: 30px 35px 45px; box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset; }
+    h1 { font-size: 2.4rem; color: #c9a87b; text-shadow: 2px 2px 0 #4a0000; letter-spacing: 1px; margin-bottom: 15px; font-family: 'Palatino', 'Georgia', serif; border-left: 5px solid #8b0000; padding-left: 20px; }
+    .post-date { color: #8b6b4d; font-size: 0.9rem; margin-bottom: 25px; border-bottom: 1px dashed #5a3e2e; padding-bottom: 8px; }
+    .post-image { text-align: center; margin: 25px 0; }
+    .post-image img { max-width: 100%; height: auto; border-radius: 12px; border: 1px solid #8b0000; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+    .image-caption { font-size: 0.8rem; color: #9e7b5c; margin-top: 8px; font-style: italic; }
+    p { margin-bottom: 1.2em; }
+    strong { color: #e6d5b3; }
+    a { color: #c9a87b; text-decoration: none; }
+    a:hover { color: #ffb347; text-decoration: underline; }
+    .footer-note { margin-top: 40px; padding-top: 20px; border-top: 1px solid #2e2e2e; text-align: center; font-size: 0.9rem; color: #aaa; }
+    .email { color: #c9a87b; font-weight: bold; background: #2a1e12; display: inline-block; padding: 4px 12px; border-radius: 40px; font-family: monospace; }
+    .nav-links { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; flex-wrap: wrap; }
+    .nav-link { background: #2a1e12; padding: 8px 20px; border-radius: 30px; color: #e6d5b3; text-decoration: none; transition: 0.2s; display: inline-block; }
+    .nav-link:hover { background: #8b0000; color: white; text-decoration: none; }
+    hr { border: none; height: 1px; background: linear-gradient(to right, #2e2e2e, #8b0000, #2e2e2e); margin: 20px 0; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Досье: Юлия Литневская</h1>
+  <div class="post-date">18 марта 2026 года</div>
+  <div class="post-image">
+    <img src="litnevskaya.jpg" alt="Юлия Литневская">
+    <div class="image-caption">Депутат Саратовской областной думы Юлия Литневская</div>
+  </div>
+  <p>Еще один патрон из обоймы пропагандистов областных депутатов-единороссов — <strong>Юлия Литневская</strong>. В отличие от своих коллег <strong>Сергея Гладкова</strong> (куратор помойки «На заборе тоже пишут») и <strong>Романа Грибова</strong> (канал «Движ 64»), Литневская свой анонимный канал «ХЗ» уже не ведет. Более того, в 2021 году, после того как авторство было раскрыто, она канал удалила. Именно канал Литневской породил прозвище для Грибова, которое прочно за ним закрепилось — «чучело из комментаторской будки». В своем канале Литневская не стеснялась критиковать однопартийцев, поливая грязью тех, кому публично льстила.</p>
+  <p>Из партии она перетекла в администрацию Саратова, где курировала «общественные отношения» и «противодействие экстремизму», за что получила благодарности от ГУ МВД. В 2017 году была избрана депутатом Саратовской областной думы по списку «Единой России». В 2022 году — аналогично. За Литневскую как за депутата никто никогда не голосовал на конкурентных выборах.</p>
+  <p>Главный актив Литневской — не депутатское кресло, а родной брат <strong>Роман Усанкин</strong>. Именно с ним аффилирована печально известная компания ООО «Тропиканка». В 2019 году с легкой руки тогдашнего губернатора <strong>Валерия Радаева</strong> «Тропиканка» получила 11 земельных участков в Саратове без торгов. Формально — для помощи обманутым дольщикам ЖК «Южный». Фактически — под размещение магазинов. К 2023 году фирма полностью вышла из проекта. Оценочная прибыль схемы: от 60 до 90 миллионов рублей. Среди конечных приобретателей оказался, в частности, сын экс-депутата областной думы <strong>Леонида Писного</strong>. Но это не единственный эпизод. Усанкин также был заказчиком проекта планировки территории под застройку в районе Банного озера в Энгельсе. Застроить эту землю должна была супруга депутата Госдумы <strong>Андрея Воробьева</strong>.</p>
+  <p>Литневская, как и ее коллеги, обожает писать доносы. В 2022 году она попросила прокурора области <strong>Сергея Филипенко</strong> проверить главного редактора «Взгляд-инфо» <strong>Николая Лыкова</strong> и журналистку <strong>Анну Мухину</strong>* на предмет прохождения «русофобских семинаров» в Оксфорде. В прошлом году в Саратове разгорелся скандал, связанный со строительством школы в парке «Территория детства» в Ленинском районе. Литневская называла активистов (среди которых были ветераны и пенсионеры) «навальнистами и бандитами из 90-х». А когда журналистка <strong>Елена Налимова</strong>* назвала её в закрытом чате «циничной тварью», Литневская оскорбилась.</p>
+  <p>Юлия Литневская — идеальный продукт саратовской политической машины. Она никогда не избиралась народом, но получает зарплату из бюджета. Она никогда не работала по образованию (преподаватель русского языка), но возглавляет комитет по образованию и культуре. Она — говорящая голова, способная говорить много и не по делу.</p>
+  <p><small>* признаны иностранными агентами</small></p>
+  <hr>
+  <div class="footer-note">
+    <p>Мы активно следим за информационным пространством региона и не дадим вас обмануть. Поделитесь нашим сайтом со своими друзьями, ведь наш канал — единственный, кто взвешенно анализирует тот шабаш, что устроили власть имущие на земле Саратовской.</p>
+    <p>Свои мысли, а также фото или видео присылайте на почту <span class="email">valshabash@proton.me</span>. Анонимность гарантируем.</p>
+  </div>
+  <div class="nav-links">
+    <a href="dossier.html" class="nav-link">← Ко всем досье</a>
+    <a href="index.html" class="nav-link">На главную →</a>
+  </div>
+</div>
+</body>
+</html>
