@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
- fetch('header.html')
+  // Загрузка шапки
+  fetch('header.html')
     .then(response => response.text())
     .then(data => {
       const headerDiv = document.getElementById('header');
@@ -7,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(err => console.error('Ошибка загрузки шапки:', err));
 
- fetch('footer.html')
+  // Загрузка подвала
+  fetch('footer.html')
     .then(response => response.text())
     .then(data => {
       const footerDiv = document.getElementById('footer');
@@ -15,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(err => console.error('Ошибка загрузки подвала:', err));
 
-const postsContainer = document.getElementById('posts-container');
+  // Загрузка списка постов
+  const postsContainer = document.getElementById('posts-container');
   if (postsContainer) {
     fetch('posts.json')
       .then(response => response.json())
@@ -37,7 +40,9 @@ const postsContainer = document.getElementById('posts-container');
         postsContainer.innerHTML = '<p style="color:red;">Не удалось загрузить список публикаций. Проверьте файл posts.json.</p>';
       });
   }
-const shareContainer = document.getElementById('share-buttons');
+
+  // Кнопки "Поделиться"
+  const shareContainer = document.getElementById('share-buttons');
   if (shareContainer) {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(document.title);
