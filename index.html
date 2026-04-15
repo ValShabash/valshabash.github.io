@@ -151,6 +151,10 @@
   </div>
   <h1>Шабаш Валькирии</h1>
   <div class="tagline">О шабаше, что устроили власть имущие на земле Саратовской</div>
+  <div style="margin-bottom: 25px;">
+  <input type="text" id="searchInput" placeholder="🔍 Поиск по заголовкам..." style="width: 100%; max-width: 400px; padding: 10px; border-radius: 30px; border: none; background: #2a2a2a; color: #e6e6e6;">
+  <div id="searchResults" style="margin-top: 10px;"></div>
+</div>
   <h2>Публикации</h2>
   <div id="posts-container"></div>
   <hr>
@@ -183,5 +187,33 @@
     })
     .catch(error => console.error('Ошибка загрузки списка постов:', error));
 </script> 
+  <script>
+  const searchInput = document.getElementById('searchInput');
+  const resultsDiv = document.getElementById('searchResults');
+  if (searchInput && resultsDiv) {
+    fetch('posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        searchInput.addEventListener('input', function() {
+          const query = this.value.trim().toLowerCase();
+          if (query.length < 2) {
+            resultsDiv.innerHTML = '';
+            return;
+          }
+          const matches = posts.filter(post => post.title.toLowerCase().includes(query));
+          if (matches.length === 0) {
+            resultsDiv.innerHTML = '<p>Ничего не найдено</p>';
+            return;
+          }
+          let html = '<ul style="list-style:none; padding-left:0;">';
+          matches.forEach(post => {
+            html += <li style="margin:8px 0;"><a href="${post.url}">${post.title}</a> <span style="color:#aaa;">(${post.date})</span></li>;
+          });
+          html += '</ul>';
+          resultsDiv.innerHTML = html;
+        });
+      });
+  }
+</script>
 </body>
 </html>
