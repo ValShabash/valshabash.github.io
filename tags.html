@@ -101,7 +101,7 @@
 </div>
 
 <script>
-  let allMaterials = []; // объединённый массив постов и досье
+  let allMaterials = [];
 
   Promise.all([
     fetch('posts.json').then(r => r.json()).catch(() => []),
@@ -117,28 +117,26 @@
     });
     const sortedTags = Array.from(allTags).sort();
 
-    // Рисуем облако тегов
     const tagCloud = document.getElementById('tagCloud');
-    tagCloud.innerHTML = sortedTags.map(tag => <a href="#" data-tag="${tag}">${tag}</a>).join('');
+    tagCloud.innerHTML = sortedTags.map(tag => `<a href="#" data-tag="${tag}">${tag}</a>`).join('');
 
-    // Функция показа результатов по тегу
     function showResults(tag) {
       const matching = allMaterials.filter(item => item.tags && item.tags.includes(tag));
       const resultsDiv = document.getElementById('results');
       if (matching.length === 0) {
-        resultsDiv.innerHTML = <p>Ничего не найдено по тегу «${tag}».</p>;
+        resultsDiv.innerHTML = `<p>Ничего не найдено по тегу «${tag}».</p>`;
         return;
       }
-      let html = <h3>📌 Материалы с тегом «${tag}»</h3><ul>;
+      let html = `<h3>📌 Материалы с тегом «${tag}»</h3><ul>`;
       matching.forEach(item => {
         let displayTitle = item.title;
-        let displayDate = item.date ? (${item.date}) : '';
-        html += <li><a href="${item.url}">${displayTitle}</a> ${displayDate}</li>;
+        let displayDate = item.date ? `(${item.date})` : '';
+        html += `<li><a href="${item.url}">${displayTitle}</a> ${displayDate}</li>`;
       });
       html += '</ul>';
       resultsDiv.innerHTML = html;
     }
-  // Обработка кликов по тегам
+
     document.querySelectorAll('.tag-cloud a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -148,7 +146,6 @@
       });
     });
 
-    // Если в URL есть параметр ?tag=...
     const urlParams = new URLSearchParams(window.location.search);
     const tagParam = urlParams.get('tag');
     if (tagParam && sortedTags.includes(tagParam)) {
@@ -156,7 +153,7 @@
     }
   }).catch(err => {
     console.error('Ошибка загрузки данных:', err);
-    document.getElementById('tagCloud').innerHTML = '<p style="color:red;">Не удалось загрузить теги.</p>';
+    document.getElementById('tagCloud').innerHTML = '<p style="color:red;">Не удалось загрузить теги. Проверьте, что файлы posts.json и dossiers.json лежат в корне сайта.</p>';
   });
 </script>
 </body>
