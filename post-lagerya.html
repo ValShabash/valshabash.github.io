@@ -125,29 +125,22 @@
 
   <hr>
 
-<div id="test-tags" style="margin:20px 0;text-align:center; background:#222; padding:10px;">Инициализация...</div>
+<div id="post-tags" style="margin: 20px 0; text-align: center;"></div>
 <script>
-  var div = document.getElementById('test-tags');
-  div.innerHTML = 'Запрашиваю posts.json...';
-  fetch('posts.json')
-    .then(function(response) {
-      div.innerHTML = 'Ответ получен, статус: ' + response.status;
-      return response.json();
-    })
-    .then(function(data) {
-      div.innerHTML = 'JSON разобран, ищу пост...';
-      var current = window.location.pathname.split('/').pop();
-      var post = data.find(function(p) { return p.url === current; });
-      if (post && post.tags) {
-        div.innerHTML = '<p>🔖 Теги: ' + post.tags.join(', ') + '</p>';
-      } else {
-        div.innerHTML = '<p>Теги не найдены для этого поста</p>';
-      }
-    })
-    .catch(function(err) {
-      div.innerHTML = '<p>Ошибка: ' + err.message + '</p>';
-      console.error(err);
-    });
+  (function() {
+    const currentUrl = window.location.pathname.split('/').pop();
+    fetch('posts.json')
+      .then(response => response.json())
+      .then(posts => {
+        const currentPost = posts.find(p => p.url === currentUrl);
+        if (currentPost && currentPost.tags && currentPost.tags.length) {
+          const tagLinks = currentPost.tags.map(tag => <a href="/tags.html?tag=${encodeURIComponent(tag)}" style="color:#c9a87b; margin:0 4px;">${tag}</a>).join(', ');
+          const tagsHtml = <p style="font-size:0.85rem; color:#aaa;">🔖 Теги: ${tagLinks}</p>;
+          document.getElementById('post-tags').innerHTML = tagsHtml;
+        }
+      })
+      .catch(e => console.error('Ошибка загрузки тегов', e));
+  })();
 </script>
 
   <!-- Блок "Поделиться" -->
