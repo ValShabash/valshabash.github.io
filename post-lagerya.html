@@ -125,21 +125,27 @@
 
   <hr>
 
-<div id="test-tags" style="margin:20px 0;text-align:center; background:#222; padding:10px;">Загрузка...</div>
+<div id="test-tags" style="margin:20px 0;text-align:center; background:#222; padding:10px;">Инициализация...</div>
 <script>
+  var div = document.getElementById('test-tags');
+  div.innerHTML = 'Запрашиваю posts.json...';
   fetch('posts.json')
-    .then(res => res.json())
-    .then(data => {
-      const current = window.location.pathname.split('/').pop();
-      const post = data.find(p => p.url === current);
+    .then(function(response) {
+      div.innerHTML = 'Ответ получен, статус: ' + response.status;
+      return response.json();
+    })
+    .then(function(data) {
+      div.innerHTML = 'JSON разобран, ищу пост...';
+      var current = window.location.pathname.split('/').pop();
+      var post = data.find(function(p) { return p.url === current; });
       if (post && post.tags) {
-        document.getElementById('test-tags').innerHTML = <p>🔖 Теги: ${post.tags.join(', ')}</p>;
+        div.innerHTML = '<p>🔖 Теги: ' + post.tags.join(', ') + '</p>';
       } else {
-        document.getElementById('test-tags').innerHTML = '<p>Теги не найдены</p>';
+        div.innerHTML = '<p>Теги не найдены для этого поста</p>';
       }
     })
-    .catch(err => {
-      document.getElementById('test-tags').innerHTML = '<p>Ошибка: ' + err.message + '</p>';
+    .catch(function(err) {
+      div.innerHTML = '<p>Ошибка: ' + err.message + '</p>';
       console.error(err);
     });
 </script>
