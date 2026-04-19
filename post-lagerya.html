@@ -125,27 +125,22 @@
 
   <hr>
 
-<div id="post-tags" style="margin: 20px 0; text-align: center;"></div>
+<div id="test-tags" style="margin:20px 0;text-align:center; background:#222; padding:10px;">Загрузка...</div>
 <script>
-  console.log('Скрипт тегов запущен');
-  fetch('/posts.json')
-    .then(response => response.json())
+  fetch('posts.json')
+    .then(res => res.json())
     .then(data => {
-      console.log('posts.json загружен:', data);
-      const currentUrl = window.location.pathname.split('/').pop();
-      console.log('Текущий URL:', currentUrl);
-      const currentPost = data.find(p => p.url === currentUrl);
-      console.log('Найденный пост:', currentPost);
-      if (currentPost && currentPost.tags) {
-        const tagsHtml = <p>🔖 Теги: ${currentPost.tags.join(', ')}</p>;
-        document.getElementById('post-tags').innerHTML = tagsHtml;
+      const current = window.location.pathname.split('/').pop();
+      const post = data.find(p => p.url === current);
+      if (post && post.tags) {
+        document.getElementById('test-tags').innerHTML = <p>🔖 Теги: ${post.tags.join(', ')}</p>;
       } else {
-        document.getElementById('post-tags').innerHTML = '<p>Теги не найдены</p>';
+        document.getElementById('test-tags').innerHTML = '<p>Теги не найдены</p>';
       }
     })
-    .catch(error => {
-      console.error('Ошибка:', error);
-      document.getElementById('post-tags').innerHTML = '<p>Ошибка загрузки тегов</p>';
+    .catch(err => {
+      document.getElementById('test-tags').innerHTML = '<p>Ошибка: ' + err.message + '</p>';
+      console.error(err);
     });
 </script>
 
