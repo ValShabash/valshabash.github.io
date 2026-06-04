@@ -3,140 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Досье — Шабаш Валькирии</title>
+  <title>Все досье — Шабаш Валькирии</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
-      background: #0e0e0e;
+      background: #0a0a0a;
+      background-image: radial-gradient(circle at 10% 20%, #2a0a0a 1px, transparent 1px);
+      background-size: 25px 25px;
       color: #e6e6e6;
-      line-height: 1.6;
+      line-height: 1.5;
       padding: 20px;
     }
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       background: #1a1a1a;
-      border-radius: 16px;
-      padding: 30px 35px 45px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset;
+      border-radius: 24px;
+      padding: 30px 40px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset;
     }
-    .header-link {
+    .top-nav {
       text-align: right;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
-    .header-link a {
+    .top-nav a {
       color: #c9a87b;
       text-decoration: none;
       background: #2a1e12;
       padding: 6px 14px;
       border-radius: 30px;
       font-size: 0.9rem;
+      margin-left: 10px;
+      transition: 0.2s;
+      display: inline-block;
     }
-    .header-link a:hover {
+    .top-nav a:hover {
       background: #8b0000;
       color: white;
     }
+    .top-nav a.telegram {
+      background: #0088cc;
+      color: white;
+    }
+    .top-nav a.telegram:hover {
+      background: #006699;
+    }
     h1 {
-      font-size: 2.6rem;
-      text-align: center;
+      font-size: 2.4rem;
       color: #c9a87b;
-      text-shadow: 2px 2px 0 #4a0000;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      font-family: 'Palatino', 'Georgia', serif;
-    }
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #9e7b5c;
-      border-bottom: 1px dashed #5a3e2e;
-      padding-bottom: 15px;
-      margin-bottom: 35px;
-    }
-    .dossier-list {
-      list-style: none;
-    }
-    .dossier-list li {
-      background: #222;
-      margin: 20px 0;
-      padding: 15px 20px;
       border-left: 5px solid #8b0000;
-      border-radius: 0 12px 12px 0;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .dossier-card {
+      background: #222;
+      border-radius: 16px;
+      padding: 15px;
       transition: 0.2s;
+      border-left: 4px solid #8b0000;
     }
-    .dossier-list li:hover {
+    .dossier-card:hover {
       background: #2c2c2c;
-      transform: translateX(6px);
+      transform: translateY(-3px);
     }
-    .dossier-list a {
-      font-size: 1.4rem;
-      font-weight: bold;
-      text-decoration: none;
+    .dossier-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: #333;
+    }
+    .dossier-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .dossier-card h3 a {
       color: #e6d5b3;
+      text-decoration: none;
     }
-    .dossier-list a:hover {
+    .dossier-card h3 a:hover {
       color: #ffb347;
+      text-decoration: underline;
     }
-    .dossier-list p {
-      color: #aaa;
-      margin-top: 6px;
-      font-size: 0.9rem;
+    .dossier-date {
+      font-size: 0.8rem;
+      color: #8b6b4d;
     }
     .back-link {
       display: inline-block;
       margin-top: 30px;
       background: #2a1e12;
-      padding: 8px 20px;
+      padding: 6px 14px;
       border-radius: 30px;
-      color: #e6d5b3;
+      color: #c9a87b;
       text-decoration: none;
     }
-    .back-link:hover {
-      background: #8b0000;
-      color: white;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #777;
-      margin-top: 40px;
-      border-top: 1px solid #2e2e2e;
-      padding-top: 20px;
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      h1 { font-size: 1.8rem; }
+      .top-nav { text-align: center; margin-bottom: 20px; }
+      .top-nav a { margin: 5px; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <div class="header-link">
-    <a href="index.html">← На главную</a>
+  <div class="top-nav">
+    <a href="index.html">Главная</a>
+    <a href="https://t.me/valshabash" target="_blank" class="telegram">📱 Telegram</a>
   </div>
-  <h1>Досье</h1>
-  <div class="tagline">Кто есть кто на шабаше саратовской власти</div>
-  <ul class="dossier-list">
-    <li>
-      <a href="dossier-gladkov.html">Сергей Гладков</a>
-      <p>Депутат-единоросс, куратор пропагандистской помойки, балашовское наследие.</p>
-    </li>
-     <li>
-      <a href="dossier-gribov.html">Роман Грибов</a>
-      <p>Экс-министр, депутат, куратор «Движ 64» и мастер сомнительных комплиментов.</p>
-    </li>
-    <li>
-      <a href="dossier-litnevskaya.html">Юлия Литневская</a>
-      <p>Депутат-единоросс, бывшая владелица канала «ХЗ», говорящая голова.</p>
-    </li>
-  </ul>
-  <div style="text-align: center;">
-    <a href="index.html" class="back-link">← Вернуться на главную</a>
-  </div>
-  <footer>
-    <p>Присылайте свои мысли, фото, видео на почту valshabash@proton.me. Анонимность гарантируем.</p>
-  </footer>
+  <h1>Все досье</h1>
+  <div id="dossier-grid" class="dossier-grid"></div>
+  <a href="index.html" class="back-link">← На главную</a>
 </div>
+
+<script>
+  fetch('dossiers.json')
+    .then(r => r.json())
+    .then(dossiers => {
+      // Сортировка по дате (новые сверху)
+      dossiers.sort((a,b) => {
+        const dateA = a.date.split('.').reverse().join('-');
+        const dateB = b.date.split('.').reverse().join('-');
+        return new Date(dateB) - new Date(dateA);
+      });
+      const container = document.getElementById('dossier-grid');
+      container.innerHTML = dossiers.map(d => `
+        <div class="dossier-card">
+          <img src="${d.thumb}" alt="${d.title}" class="dossier-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
+          <h3><a href="${d.url}">${d.title}</a></h3>
+          <div class="dossier-date">${d.date}</div>
+        </div>
+      `).join('');
+    })
+    .catch(e => {
+      document.getElementById('dossier-grid').innerHTML = '<p style="color:red;">Ошибка загрузки досье.</p>';
+      console.error(e);
+    });
+</script>
 </body>
 </html>
