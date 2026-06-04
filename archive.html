@@ -27,7 +27,7 @@
       text-align: right;
       margin-bottom: 30px;
     }
-    .top-nav a, .top-nav span {
+    .top-nav a {
       color: #c9a87b;
       text-decoration: none;
       background: #2a1e12;
@@ -42,7 +42,12 @@
       background: #8b0000;
       color: white;
     }
-    /* Ссылка на Telegram всегда синяя */
+    /* Активная ссылка (Главная) — красная */
+    .top-nav a.active {
+      background: #8b0000;
+      color: white;
+    }
+    /* Telegram всегда синий */
     .top-nav a.telegram {
       background: #0088cc;
       color: white;
@@ -112,16 +117,14 @@
       .container { padding: 20px; }
       h1 { font-size: 1.8rem; }
       .top-nav { text-align: center; margin-bottom: 20px; }
-      .top-nav a, .top-nav span { margin: 5px; }
+      .top-nav a { margin: 5px; }
     }
   </style>
 </head>
 <body>
 <div class="container">
   <div class="top-nav">
-    <a href="index.html">Главная</a>
-    <a href="dossier.html">Досье</a>
-    <a href="wonders.html">Чудеса</a>
+    <a href="index.html" class="active">Главная</a>
     <a href="https://t.me/valshabash" target="_blank" class="telegram">📱 Telegram</a>
   </div>
   <h1>Все публикации</h1>
@@ -133,7 +136,10 @@
   fetch('posts.json')
     .then(r => r.json())
     .then(posts => {
+      // Сортировка от новых к старым
       posts.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
+      
+      // Группировка по году и месяцу
       const grouped = {};
       posts.forEach(post => {
         const [day, month, year] = post.date.split('.');
@@ -141,9 +147,12 @@
         if (!grouped[key]) grouped[key] = { year, month, posts: [] };
         grouped[key].posts.push(post);
       });
+      
+      // Формирование HTML
       let html = '';
       for (let key in grouped) {
         const { year, month, posts } = grouped[key];
+        // Название месяца без года
         const monthName = new Date(year, month-1, 1).toLocaleString('ru', { month: 'long' });
         html += `<div class="archive-year"><h2>${year}</h2><div class="archive-month"><h3>${monthName}</h3><ul class="archive-list">`;
         posts.forEach(post => {
