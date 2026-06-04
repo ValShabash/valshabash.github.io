@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N чудес Саратова — Шабаш Валькирии</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #0a0a0a;
+      background-image: radial-gradient(circle at 10% 20%, #2a0a0a 1px, transparent 1px);
+      background-size: 25px 25px;
+      color: #e6e6e6;
+      line-height: 1.5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      border-radius: 24px;
+      padding: 30px 40px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset;
+    }
+    .top-nav {
+      text-align: right;
+      margin-bottom: 30px;
+    }
+    .top-nav a {
+      color: #c9a87b;
+      text-decoration: none;
+      background: #2a1e12;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-left: 10px;
+      transition: 0.2s;
+      display: inline-block;
+    }
+    .top-nav a:hover {
+      background: #8b0000;
+      color: white;
+    }
+    .top-nav a.active {
+      background: #8b0000;
+      color: white;
+    }
+    .top-nav a.telegram {
+      background: #0088cc;
+      color: white;
+    }
+    .top-nav a.telegram:hover {
+      background: #006699;
+    }
+    h1 {
+      font-size: 2.4rem;
+      color: #c9a87b;
+      border-left: 5px solid #8b0000;
+      padding-left: 20px;
+      margin-bottom: 30px;
+    }
+    .wonders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    .wonder-card {
+      background: #222;
+      border-radius: 16px;
+      padding: 15px;
+      transition: 0.2s;
+      border-left: 4px solid #8b0000;
+    }
+    .wonder-card:hover {
+      background: #2c2c2c;
+      transform: translateY(-3px);
+    }
+    .wonder-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: #333;
+    }
+    .wonder-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .wonder-card h3 a {
+      color: #e6d5b3;
+      text-decoration: none;
+    }
+    .wonder-card h3 a:hover {
+      color: #ffb347;
+      text-decoration: underline;
+    }
+    .wonder-date {
+      font-size: 0.8rem;
+      color: #8b6b4d;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      background: #2a1e12;
+      padding: 6px 14px;
+      border-radius: 30px;
+      color: #c9a87b;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      h1 { font-size: 1.8rem; }
+      .top-nav { text-align: center; margin-bottom: 20px; }
+      .top-nav a { margin: 5px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="top-nav">
+    <a href="index.html">Главная</a>
+    <a href="https://t.me/valshabash" target="_blank" class="telegram">📱 Telegram</a>
+  </div>
+  <h1>🌟 N чудес Саратова</h1>
+  <div class="wonders-grid">
+    <div class="wonder-card">
+      <img src="wonder-teatr.jpg" alt="Долгострой театра" class="wonder-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
+      <h3><a href="post-wonder-theater.html">Долгострой Саратовского театра оперы и балета</a></h3>
+      <div class="wonder-date">строится с 2011 года, миллиарды освоены, здание в руинах</div>
+    </div>
+    <!-- Добавляйте новые чудеса сюда по такому же образцу -->
+  </div>
+  <a href="index.html" class="back-link">← На главную</a>
+</div>
+</body>
+</html>
