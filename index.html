@@ -3,378 +3,365 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Шабаш Валькирии</title>
+  <title>Шабаш Валькирии — анонимный аналитический канал</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
       background: #0a0a0a;
       background-image: radial-gradient(circle at 10% 20%, #2a0a0a 1px, transparent 1px);
       background-size: 25px 25px;
       color: #e6e6e6;
-      line-height: 1.6;
+      line-height: 1.5;
       padding: 20px;
     }
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       background: #1a1a1a;
-      border-radius: 16px;
-      padding: 30px 35px 45px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset;
+      border-radius: 24px;
+      padding: 30px 40px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset;
     }
-    .top-nav {
-      text-align: right;
-      margin-bottom: 20px;
-    }
-    .top-nav a {
-      color: #c9a87b;
-      text-decoration: none;
-      background: #2a1e12;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      transition: 0.2s;
-      display: inline-block;
-      margin: 5px;
-    }
-    .top-nav a:hover {
-      background: #8b0000;
-      color: white;
+    /* Шапка */
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #2e2e2e;
+      padding-bottom: 25px;
     }
     .logo {
-      text-align: center;
-      margin-bottom: 20px;
+      flex-shrink: 0;
     }
     .logo img {
-      max-width: 180px;
-      height: auto;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
       border-radius: 50%;
       border: 2px solid #8b0000;
-      box-shadow: 0 0 12px rgba(139,0,0,0.6);
-      transition: transform 0.2s;
+      box-shadow: 0 0 12px rgba(139,0,0,0.5);
     }
-    .logo img:hover {
-      transform: scale(1.02);
+    .header-info {
+      flex: 1;
     }
-    h1 {
-      font-size: 2.8rem;
-      text-align: center;
+    .header-info h1 {
+      font-size: 2.2rem;
       color: #c9a87b;
-      text-shadow: 2px 2px 0 #4a0000;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-      font-family: 'Palatino', 'Georgia', serif;
+      text-shadow: 1px 1px 0 #4a0000;
+      margin-bottom: 10px;
     }
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #9e7b5c;
-      border-bottom: 1px dashed #5a3e2e;
-      padding-bottom: 15px;
-      margin-bottom: 30px;
-      font-size: 1.1rem;
+    .header-info p {
+      color: #bbb;
+      margin-bottom: 15px;
+      line-height: 1.4;
     }
-    h2 {
-      font-size: 1.9rem;
-      border-left: 5px solid #8b0000;
-      padding-left: 20px;
-      margin: 35px 0 20px 0;
-      color: #d4b48c;
+    .header-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
-    .post-list {
-      list-style: none;
-      margin-bottom: 40px;
-    }
-    .post-list li {
-      background: #222;
-      margin: 15px 0;
-      padding: 12px 20px;
-      border-left: 4px solid #8b0000;
-      border-radius: 0 12px 12px 0;
-      transition: all 0.2s;
-    }
-    .post-list li:hover {
-      background: #2c2c2c;
-      transform: translateX(6px);
-      border-left-width: 6px;
-    }
-    .post-list a {
-      font-size: 1.3rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: #e6d5b3;
-    }
-    .post-list a:hover {
-      color: #ffb347;
-      text-decoration: underline;
-    }
-    .post-date {
-      color: #8b6b4d;
-      font-size: 0.85rem;
-      margin-left: 12px;
-    }
-    .dossier-list {
-      list-style: none;
-      margin-bottom: 20px;
-    }
-    .dossier-list li {
-      background: #222;
-      margin: 12px 0;
-      padding: 10px 20px;
-      border-left: 4px solid #8b0000;
-      border-radius: 0 12px 12px 0;
-      transition: all 0.2s;
-    }
-    .dossier-list li:hover {
-      background: #2c2c2c;
-      transform: translateX(6px);
-    }
-    .dossier-list a {
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: #e6d5b3;
-    }
-    .dossier-list a:hover {
-      color: #ffb347;
-      text-decoration: underline;
-    }
-    .dossier-list .dossier-desc {
-      font-size: 0.85rem;
-      color: #aaa;
-      margin-left: 12px;
-    }
-    .all-dossiers-link {
-      display: inline-block;
-      margin-top: 10px;
-      margin-bottom: 30px;
+    .btn {
       background: #2a1e12;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      color: #c9a87b;
+      padding: 8px 18px;
+      border-radius: 40px;
       text-decoration: none;
+      color: #c9a87b;
+      font-size: 0.9rem;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .all-dossiers-link:hover {
+    .btn:hover {
       background: #8b0000;
       color: white;
     }
-    hr {
-      border: none;
-      height: 1px;
-      background: linear-gradient(to right, #2e2e2e, #8b0000, #2e2e2e);
-      margin: 25px 0;
+    .telegram-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
     }
-    footer {
-      text-align: center;
-      font-size: 0.95rem;
-      color: #aaaaaa;
-      margin-top: 20px;
+    /* Общие блоки */
+    .section {
+      margin: 50px 0;
     }
-    footer p {
-      margin: 12px 0;
+    .section h2 {
+      font-size: 1.8rem;
+      border-left: 5px solid #8b0000;
+      padding-left: 20px;
+      margin-bottom: 15px;
+      color: #d4b48c;
     }
-    .email {
-      color: #c9a87b;
-      font-weight: bold;
-      background: #2a1e12;
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 40px;
-      font-family: monospace;
-      letter-spacing: 0.5px;
+    .section-desc {
+      color: #aaa;
+      margin-bottom: 20px;
+      font-style: italic;
     }
-    .search-box {
+    /* Карточки */
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
       margin-bottom: 25px;
     }
-    .search-box input {
+    .card {
+      background: #222;
+      border-radius: 16px;
+      padding: 15px;
+      transition: 0.2s;
+      border-left: 4px solid #8b0000;
+    }
+    .card:hover {
+      background: #2c2c2c;
+      transform: translateY(-3px);
+    }
+    .card-image {
       width: 100%;
-      max-width: 400px;
-      padding: 10px;
-      border-radius: 30px;
-      border: none;
-      background: #2a2a2a;
-      color: #e6e6e6;
-      font-family: inherit;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: #333;
     }
-    .search-results {
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .card h3 a {
+      color: #e6d5b3;
+      text-decoration: none;
+    }
+    .card h3 a:hover {
+      color: #ffb347;
+    }
+    .card-date {
+      font-size: 0.8rem;
+      color: #8b6b4d;
+    }
+    .more-link {
+      display: inline-block;
       margin-top: 10px;
-    }
-    .search-results ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .search-results li {
-      margin: 8px 0;
-    }
-    .search-results a {
+      background: #2a1e12;
+      padding: 6px 18px;
+      border-radius: 30px;
       color: #c9a87b;
+      text-decoration: none;
+      font-size: 0.9rem;
     }
-    /* Мобильная адаптация */
+    .more-link:hover {
+      background: #8b0000;
+      color: white;
+    }
+    /* Акция */
+    .campaign-block {
+      background: #2a1e12;
+      border-radius: 20px;
+      padding: 20px 25px;
+      margin: 30px 0;
+      border: 1px solid #8b0000;
+    }
+    .campaign-block h3 {
+      font-size: 1.6rem;
+      color: #ffb347;
+      margin-bottom: 10px;
+    }
+    /* Кнопки соцсетей (как в постах) */
+    .social-share {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      margin: 20px 0;
+    }
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+    .social-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    .share-native, .copy-link {
+      background: #8b0000;
+      border: none;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .share-native:hover, .copy-link:hover {
+      background: #b22222;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 25px;
+      text-align: center;
+      border-top: 1px solid #2e2e2e;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+    .footer-email {
+      color: #c9a87b;
+      font-weight: bold;
+    }
     @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
-      .container {
-        padding: 20px 15px;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      h2 {
-        font-size: 1.4rem;
-      }
-      .post-list a {
-        font-size: 1rem;
-      }
-      .post-list .post-date {
-        font-size: 0.7rem;
-        display: inline-block;
-        margin-left: 5px;
-      }
-      .top-nav {
-        text-align: center;
-      }
-      .top-nav a {
-        display: inline-block;
-        margin: 5px;
-      }
+      .container { padding: 20px; }
+      .header { flex-direction: column; text-align: center; }
+      .header-info h1 { font-size: 1.8rem; }
+      .card-list { grid-template-columns: 1fr; }
+      .section h2 { font-size: 1.5rem; }
+      .social-icon { width: 40px; height: 40px; }
+      .social-icon svg { width: 20px; height: 20px; }
+      .share-native, .copy-link { padding: 6px 16px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <div class="top-nav">
-        <a href="memoirs.html">📔 Мемуары саратовского мэра</a>
+  <!-- ==================== ШАПКА КАНАЛА ==================== -->
+  <div class="header">
+    <div class="logo">
+      <img src="logo.jpg" alt="Шабаш Валькирии">
+    </div>
+    <div class="header-info">
+      <h1>Шабаш Валькирии</h1>
+      <p>«Шабаш Валькирии» — анонимный независимый канал, разоблачающий шабаш, что устроили власть имущие на земле Саратовской. Создан 4 февраля 2025 года. Канал специализируется на Саратовской региональной информационной обстановке. Команда не поддерживает ни одну из политических партий, выступает за население, поддерживает честность. На сайте вы можете найти оперативные новости, комментарии на злобу дня, расследования на чиновников Саратовской области, а также уникальные рубрики.</p>
+      <div class="header-buttons">
+        <a href="mailto:valshabash@proton.me" class="btn">✉️ valshabash@proton.me</a>
+        <a href="https://t.me/valshabash" target="_blank" class="btn">
+          <svg class="telegram-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.283-1.434z"/></svg>
+          Telegram-канал
+        </a>
+      </div>
+    </div>
   </div>
-  <div class="logo">
-    <img src="logo.jpg" alt="Логотип Шабаш Валькирии">
+
+  <!-- ==================== АКЦИЯ #ЧестныеВыборы64 ==================== -->
+  <div class="campaign-block">
+    <h3>#ЧестныеВыборы64</h3>
+    <p>Рейтинг «Единой России» упал ниже 30%, в Саратовской области партию поддерживают менее 20%. Честно победить на выборах партия не сможет, поэтому «Шабаш Валькирии» запускает акцию #ЧестныеВыборы64.</p>
+    <p><strong>Либо мы боремся за своё будущее, либо получаем власть, которая годами разворовывала бюджет.</strong></p>
+    <a href="post-chestnye-vybory-64.html" class="more-link">Подробнее об акции →</a>
   </div>
-  <h1>Шабаш Валькирии</h1>
-  <div class="tagline">О шабаше, что устроили власть имущие на земле Саратовской</div>
 
-  <!-- Блок публикаций (динамический из posts.json) -->
-  <h2> Публикации</h2>
-  <div id="posts-container"></div>
- <ul class="post-list" id="static-post-list">
-   <li><a href="post-chestnye-vybory-64.html">Честные выборы 64</a><span class="post-date">(03.06.2026)</span></li>
-   <li><a href="post-serezhenka-obidelsya.html">Серёженька обиделся</a><span class="post-date">(02.06.2026)</span></li>
-   <li><a href="post-itogi-praimeriz.html">Итоги праймериз</a><span class="post-date">(02.06.2026)</span></li>
-   <li><a href="post-optimizatsiya-po-saratovski.html">Оптимизация по-саратовски</a><span class="post-date">(28.05.2026)</span></li>
-   <li><a href="post-lager-zamena-gadzhetu.html">Детский лагерь — замена гаджету</a><span class="post-date">(19.05.2026)</span></li>
-   <li><a href="post-busargin-raznos.html">Бусаргин отчитал министров</a><span class="post-date">(18.05.2026)</span></li>
-   <li><a href="post-engels-fekalii.html">Энгельс затопило</a><span class="post-date">(12.05.2026)</span></li>
-   <li><a href="post-oskorblyati.html">Оскорбляти</a><span class="post-date">(29.04.2026)</span></li>
-   <li><a href="post-otdyhat-nelzya-voevat.html">Отдыхать нельзя воевать</a><span class="post-date">(25.04.2026)</span></li>
-   <li><a href="post-isaev-nevinoven.html">Исаев невиновен?</a><span class="post-date">(23.04.2026)</span></li>
-   <li><a href="post-lagerya.html">Вместо лагерей на фудкорды</a><span class="post-date">(19.04.2026)</span></li>
-   <li><a href="post-dudakov.html">Дудаковщина: как в Саратовской области обстоят дела со льготным обеспечением</a><span class="post-date">(15.04.2026)</span></li>
-    <li><a href="post-itogi-2025.html">Саратовские итоги 2025 года</a><span class="post-date">(08.04.2026)</span></li>
-    <li><a href="post-isaev-dtp.html">Исаев лихачил на Исаева</a><span class="post-date">(31.03.2026)</span></li>
-    <li><a href="post1.html">Навалили кавалеры на полу</a><span class="post-date">(30.03.2026)</span></li>
- </ul>
-  <!-- Блок активного опроса -->
-<div class="poll-widget" style="background: #2a1e12; border-radius: 16px; padding: 20px; margin: 30px 0; text-align: center; border: 1px solid #8b0000;">
-  <p style="font-size: 1.1rem; margin-bottom: 10px;">📊 <strong>Активный опрос</strong></p>
-  <p style="margin-bottom: 15px;">Как вы оцениваете работу министра здравоохранения Владимира Дудакова?</p>
-  <a href="https://forms.gle/w139KQSFDWhz1Uyd7" target="_blank" class="poll-button" style="display: inline-block; background: #8b0000; color: white; padding: 8px 20px; border-radius: 40px; text-decoration: none;">✅ Пройти опрос</a>
-  <p style="font-size: 0.8rem; margin-top: 10px;"><a href="polls.html" style="color: #c9a87b;">→ Все опросы</a></p>
-</div>
-  <!-- Блок досье (статический) -->
-  <h2> Досье</h2>
-  <ul class="dossier-list">
-    <li>
-      <a href="dossier-rogozhin.html">Вадим Рогожин</a><span class="post-date">(20.05.2026)</span>
-      <span class="dossier-desc">Депутат-единоросс, бывший белоленточник, владелец помойки «Четвертая власть»</span></li>
-    </li>
-    <li>
-      <a href="dossier-litnevskaya.html">Юлия Литневская</a><span class="post-date">(18.03.2026)</span>
-      <span class="dossier-desc">Депутат-единоросс, бывшая владелица канала «ХЗ»</span></li>
-    </li>
-    <li>
-      <a href="dossier-gribov.html">Роман Грибов</a><span class="post-date">(03.03.2026)</span>
-      <span class="dossier-desc">Депутат-единоросс, куратор «Движ 64»</span></li>
-    </li>
-    <li>
-      <a href="dossier-gladkov.html">Сергей Гладков</a><span class="post-date">(10.02.2026)</span>
-      <span class="dossier-desc">Депутат-единоросс, куратор помойки «На заборе тоже пишут»</span></li>
-        </ul>
- <!-- Блок "Опросы" -->
-<div class="polls-promo" style="background: #1a1a1a; border-radius: 16px; padding: 20px; margin: 30px 0; text-align: center; border: 1px solid #8b0000; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-  <p style="font-size: 1.2rem; margin-bottom: 8px;">📊 <strong>Ваше мнение важно</strong></p>
-  <p style="margin-bottom: 15px;">Проходите анонимные опросы — помогайте нам расследовать дальше.</p>
-  <a href="polls.html" style="display: inline-block; background: #8b0000; color: white; padding: 10px 28px; border-radius: 40px; text-decoration: none; font-weight: bold; transition: 0.2s;">🗳️ Все опросы</a>
-</div>
-  <hr>
+  <!-- ==================== АКТУАЛЬНЫЕ НОВОСТИ ==================== -->
+  <div class="section">
+    <h2>📰 Актуальные новости</h2>
+    <div class="section-desc">Свежие материалы. Здесь вы узнаете о последних новостях Саратовской области без пропаганды и канцеляризмов. Оперативная информация в Telegram-канале <a href="https://t.me/valshabash" style="color:#c9a87b;">@valshabash</a>.</div>
+    <div class="card-list">
+      <div class="card"><h3><a href="post-serezhenka-obidelsya.html">Серёженька обиделся</a></h3><div class="card-date">02.06.2026</div></div>
+      <div class="card"><h3><a href="post-itogi-praimeriz.html">Итоги праймериз</a></h3><div class="card-date">01.06.2026</div></div>
+      <div class="card"><h3><a href="post-optimizatsiya-po-saratovski.html">Оптимизация по-саратовски</a></h3><div class="card-date">28.05.2026</div></div>
+      <div class="card"><h3><a href="post-camp-instead-gadget.html">Детский лагерь — замена гаджету</a></h3><div class="card-date">19.05.2026</div></div>
+      <div class="card"><h3><a href="post-busargin-raznos.html">Бусаргин отчитал министров</a></h3><div class="card-date">18.05.2026</div></div>
+    </div>
+    <a href="archive.html" class="more-link">→ Все новости</a>
+  </div>
 
+  <!-- ==================== ДОСЬЕ ==================== -->
+  <div class="section">
+    <h2>📁 Досье</h2>
+    <div class="section-desc">Коллекция портретов власть имущих, устроивших шабаш на Земле Саратовской. Обитатели политической кухни, забравшие обед у жителей.</div>
+    <div class="card-list">
+      <div class="card">
+        <img src="galyashkina.jpg" alt="Антонина Галяшкина" class="card-image">
+        <h3><a href="dossier-galyashkina.html">Антонина Галяшкина — депутатка-единоросска, сделавшая стремительную карьеру в свои 68</a></h3>
+        <div class="card-date">05.06.2026</div>
+      </div>
+      <div class="card">
+        <img src="rogozhin.jpg" alt="Вадим Рогожин" class="card-image">
+        <h3><a href="dossier-rogozhin.html">Вадим Рогожин — депутат-единоросс, бывший белоленточник, владелец информационной помойки «Четвёртая власть»</a></h3>
+        <div class="card-date">20.05.2026</div>
+      </div>
+      <div class="card">
+        <img src="gribov.jpg" alt="Роман Грибов" class="card-image">
+        <h3><a href="dossier-gribov.html">Роман Грибов – депутат-единоросс, куратор телеграм-помойки «Движ 64»</a></h3>
+        <div class="card-date">15.04.2026</div>
+      </div>
+    </div>
+    <a href="dossier.html" class="more-link">→ Все досье</a>
+  </div>
+
+  <!-- ==================== N ЧУДЕС ЗЕМЛИ САРАТОВСКОЙ (только театр) ==================== -->
+  <div class="section">
+    <h2>🌟 N чудес земли Саратовской</h2>
+    <div class="section-desc">Экскурсия по памятникам коррупции региона. Почему N? Потому что список бесконечно пополняется, как и карманы коррупционеров.</div>
+    <div class="card-list">
+      <div class="card">
+        <img src="wonder-teatr.jpg" alt="Долгострой театра" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
+        <h3><a href="post-wonder-theater.html">Долгострой Саратовский театр балета и оперы</a></h3>
+        <div class="card-date">строится с 2011 года</div>
+      </div>
+    </div>
+    <a href="wonders.html" class="more-link">→ Все чудеса</a>
+  </div>
+
+  <!-- ==================== ПОДПИСАТЬСЯ ==================== -->
+  <div class="section">
+    <h2>📢 Подписаться</h2>
+    <div class="section-desc">Если вам небезразлично, что происходит в Саратовской области — подписывайтесь на наш Telegram-канал. А также расскажите о нас своим близким, друзьям и коллегам. Правда не должна оставаться в узком кругу.</div>
+    <div style="margin: 20px 0;">
+      <a href="https://t.me/valshabash" target="_blank" class="btn" style="background:#0088cc; color:white;">📱 Подписаться в Telegram</a>
+    </div>
+    <!-- Иконки соцсетей (как в постах) -->
+    <div class="social-share">
+      <a href="#" id="shareVK" class="social-icon" style="background-color:#4680C2;" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm2.95 13.67h-1.14c-.54 0-.72-.27-1.07-.78-1.02-1.5-2.12-2.01-2.47-1.75-.4.3-.1 1.27-.1 1.63 0 .19-.06.42-.41.42h-.59c-1.88 0-3.36-1.57-4.18-2.97-1.02-1.74-2.07-5.16-2.07-5.72 0-.31.24-.55.55-.55h1.17c.4 0 .57.25.68.5.35.8.97 2.05 1.52 2.88.53.8 1.01 1.22 1.34.95.45-.37.33-1.78.33-2.42 0-.82-.21-1.44-1.1-1.59-.3-.05.2-.99.85-1.2.63-.2 2.17-.19 2.91.19.52.27.6.99.6 1.64 0 .83-.18 1.79.24 2.08.42.3.98-.09 1.68-1.24.46-.77.88-1.7 1.05-2.23.07-.22.29-.45.69-.45h1.18c.54 0 .65.27.52.67-.37 1.15-1.57 2.94-2.07 3.5-.56.63-.97 1.09-.23 1.87.82.87 1.4 1.96 1.89 2.89.16.3-.01.55-.37.55z"/></svg>
+      </a>
+      <a href="#" id="shareTG" class="social-icon" style="background-color:#0088cc;" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.283-1.434z"/></svg>
+      </a>
+      <a href="#" id="shareOK" class="social-icon" style="background-color:#F58220;" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 5c-3.17 0-6.12.93-8.42 2.54L2 16.77c2.34-1.7 5.23-2.77 8.5-2.77s6.16 1.07 8.5 2.77l-1.58 1.77c-2.3-1.61-5.25-2.54-8.42-2.54z"/></svg>
+      </a>
+      <a href="#" id="shareMAX" class="social-icon" style="background: linear-gradient(135deg, #2b5fc5, #a83de0);" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.91-9.91zm0 2.5c4.11 0 7.41 3.3 7.41 7.41 0 4.11-3.3 7.41-7.41 7.41-1.47 0-2.83-.43-4.01-1.15l-2.34.62.66-2.22c-.78-1.21-1.24-2.62-1.24-4.16 0-4.11 3.3-7.41 7.41-7.41z"/></svg>
+      </a>
+      <button id="shareNativeBtn" class="share-native">📤 Поделиться...</button>
+      <button id="copyLinkBtn" class="copy-link">🔗 Скопировать ссылку</button>
+    </div>
+  </div>
+
+  <!-- ==================== ПОДВАЛ ==================== -->
   <footer>
-    <p>Мы активно следим за информационным пространством региона и не дадим вас обмануть. Поделитесь нашим сайтом. Свои мысли, а также фото или видео присылайте на почту <span class="email">valshabash@proton.me</span><p> <p>Анонимность гарантируем.</p>
-     <!-- Плавающая цветная иконка Telegram (справа внизу) -->
-<a href="https://t.me/valshabash" target="_blank" rel="noopener noreferrer" style="position: fixed; bottom: 20px; right: 20px; background-color: #0088cc; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s; z-index: 1000;">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
-    <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.283-1.434z"/>
-  </svg>
-</a>
+    <p>Свои материалы вы можете прислать нам на почту, анонимность гарантированна</p>
+    <p><a href="mailto:valshabash@proton.me" class="footer-email">valshabash@proton.me</a></p>
+    <p style="margin-top: 15px;">© Шабаш Валькирии, 2025–2026</p>
+  </footer>
+</div>
 
-<!-- Подключение скриптов -->
-<script src="scroll.js"></script>
 <script>
-  // Загрузка списка публикаций из posts.json
-  fetch('posts.json')
-    .then(response => response.json())
-    .then(posts => {
-      const container = document.getElementById('posts-container');
-      if (!container) return;
-      let html = '<ul class="post-list">';
-      posts.forEach(post => {
-        html += 
-          <li>
-            <a href="${post.url}">${post.title}</a>
-            <span class="post-date">(${post.date})</span>
-          </li>
-        ;
-      });
-      html += '</ul>';
-      container.innerHTML = html;
-    })
-    .catch(error => {
-      console.error('Ошибка загрузки posts.json:', error);
-      document.getElementById('posts-container').innerHTML = '<p style="color:red;">Не удалось загрузить публикации.</p>';
+  const url = encodeURIComponent(window.location.href);
+  const title = encodeURIComponent('Шабаш Валькирии — анонимный аналитический канал');
+  document.getElementById('shareVK').href = `https://vk.com/share.php?url=${url}&title=${title}`;
+  document.getElementById('shareTG').href = `https://t.me/share/url?url=${url}&text=${title}`;
+  document.getElementById('shareOK').href = `https://connect.ok.ru/offer?url=${url}&title=${title}`;
+  document.getElementById('shareMAX').href = `https://max.ru/share?text=${title}%20${url}`;
+  const shareNative = document.getElementById('shareNativeBtn');
+  if (shareNative) {
+    shareNative.addEventListener('click', () => {
+      if (navigator.share) navigator.share({ title: 'Шабаш Валькирии', text: 'Аналитический канал о Саратовской области', url: window.location.href });
+      else alert('Ваш браузер не поддерживает стандартную кнопку "Поделиться".');
     });
-
-  // Поиск по заголовкам
-  const searchInput = document.getElementById('searchInput');
-  const resultsDiv = document.getElementById('searchResults');
-  let postsData = [];
-
-  fetch('posts.json')
-    .then(r => r.json())
-    .then(data => {
-      postsData = data;
-      searchInput.addEventListener('input', function() {
-        const query = this.value.trim().toLowerCase();
-        if (query.length < 2) {
-          resultsDiv.innerHTML = '';
-          return;
-        }
-        const matches = postsData.filter(post => post.title.toLowerCase().includes(query));
-        if (matches.length === 0) {
-          resultsDiv.innerHTML = '<p>Ничего не найдено</p>';
-          return;
-        }
-        let html = '<ul style="list-style:none; padding-left:0;">';
-        matches.forEach(post => {
-          html += <li style="margin:8px 0;"><a href="${post.url}">${post.title}</a> <span style="color:#aaa;">(${post.date})</span></li>;
-        });
-        html += '</ul>';
-        resultsDiv.innerHTML = html;
-      });
-    });
+  }
+  document.getElementById('copyLinkBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => alert('Ссылка скопирована!')).catch(() => alert('Не удалось скопировать.'));
+  });
 </script>
 </body>
-</html>
+  </html>
