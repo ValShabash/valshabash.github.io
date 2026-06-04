@@ -84,6 +84,7 @@
       height: 18px;
       fill: currentColor;
     }
+    /* Общие блоки */
     .section {
       margin: 50px 0;
     }
@@ -91,7 +92,7 @@
       font-size: 1.8rem;
       border-left: 5px solid #8b0000;
       padding-left: 20px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       color: #d4b48c;
     }
     .section-desc {
@@ -99,6 +100,7 @@
       margin-bottom: 20px;
       font-style: italic;
     }
+    /* Карточки для новостей, досье, чудес */
     .card-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -153,6 +155,7 @@
       background: #8b0000;
       color: white;
     }
+    /* Акция */
     .campaign-block {
       background: #2a1e12;
       border-radius: 20px;
@@ -165,6 +168,7 @@
       color: #ffb347;
       margin-bottom: 10px;
     }
+    /* Кнопки соцсетей */
     .social-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -213,14 +217,14 @@
 </head>
 <body>
 <div class="container">
-  <!-- ==================== ШАПКА КАНАЛА ==================== -->
+  <!-- ШАПКА -->
   <div class="header">
     <div class="logo">
       <img src="logo.jpg" alt="Шабаш Валькирии">
     </div>
     <div class="header-info">
       <h1>Шабаш Валькирии</h1>
-      <p>«Шабаш Валькирии» — анонимный независимый канал, разоблачающий шабаш, что устроили власть имущие на земле Саратовской. Создан 4 февраля 2025 года. Канал специализируется на Саратовской региональной информационной обстановке. Команда не поддерживает ни одну из политических партий, выступает за население, поддерживает честность. На сайте вы можете найти оперативные новости, комментарии на злобу дня, расследования на чиновников Саратовской области, а также уникальные рубрики.</p>
+      <p>Анонимный независимый канал, разоблачающий шабаш, что устроили власть имущие на земле Саратовской. Создан 4 февраля 2025 года. Канал специализируется на Саратовской региональной информационной обстановке. Команда не поддерживает ни одну из политических партий, выступает за население, поддерживает честность. На сайте вы можете найти оперативные новости, комментарии на злобу дня, расследования на чиновников Саратовской области, а также уникальные рубрики.</p>
       <div class="header-buttons">
         <a href="mailto:valshabash@proton.me" class="btn">✉️ valshabash@proton.me</a>
         <a href="https://t.me/valshabash" target="_blank" class="btn">
@@ -231,7 +235,7 @@
     </div>
   </div>
 
-  <!-- ==================== АКЦИЯ #ЧестныеВыборы64 ==================== -->
+  <!-- АКЦИЯ #ЧестныеВыборы64 -->
   <div class="campaign-block">
     <h3>#ЧестныеВыборы64</h3>
     <p>Рейтинг «Единой России» упал ниже 30%, в Саратовской области партию поддерживают менее 20%. Честно победить на выборах партия не сможет, поэтому «Шабаш Валькирии» запускает акцию #ЧестныеВыборы64.</p>
@@ -239,84 +243,48 @@
     <a href="post-chestnye-vybory-64.html" class="more-link">Подробнее об акции →</a>
   </div>
 
-  <!-- ==================== АКТУАЛЬНЫЕ НОВОСТИ ==================== -->
+  <!-- АКТУАЛЬНЫЕ НОВОСТИ -->
   <div class="section">
     <h2>📰 Актуальные новости</h2>
     <div class="section-desc">Свежие материалы. Здесь вы узнаете о последних новостях Саратовской области без пропаганды и канцеляризмов. Оперативная информация в Telegram-канале <a href="https://t.me/valshabash" style="color:#c9a87b;">@valshabash</a>.</div>
-    <div class="card-list">
-      <div class="card">
-        <h3><a href="post-serezhenka-obidelsya.html">Серёженька обиделся</a></h3>
-        <div class="card-date">02.06.2026</div>
-      </div>
-      <div class="card">
-        <h3><a href="post-itogi-praimeriz.html">Итоги праймериз</a></h3>
-        <div class="card-date">01.06.2026</div>
-      </div>
-      <div class="card">
-        <h3><a href="post-optimizatsiya-po-saratovski.html">Оптимизация по-саратовски</a></h3>
-        <div class="card-date">28.05.2026</div>
-      </div>
-      <div class="card">
-        <h3><a href="post-camp-instead-gadget.html">Детский лагерь — замена гаджету</a></h3>
-        <div class="card-date">19.05.2026</div>
-      </div>
-      <div class="card">
-        <h3><a href="post-busargin-raznos.html">Бусаргин отчитал министров</a></h3>
-        <div class="card-date">18.05.2026</div>
-      </div>
-    </div>
+    <div id="recent-news" class="card-list"></div>
     <a href="archive.html" class="more-link">→ Все новости</a>
   </div>
 
-  <!-- ==================== ДОСЬЕ ==================== -->
+  <!-- ДОСЬЕ -->
   <div class="section">
     <h2>📁 Досье</h2>
     <div class="section-desc">Коллекция портретов власть имущих, устроивших шабаш на Земле Саратовской. Обитатели политической кухни, забравшие обед у жителей.</div>
-    <div class="card-list">
-      <div class="card">
-        <img src="galyashkina-thumb.jpg" alt="Антонина Галяшкина" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="dossier-galyashkina.html">Антонина Галяшкина — депутатка-единоросска, сделавшая стремительную карьеру в свои 68</a></h3>
-        <div class="card-date">05.06.2026</div>
-      </div>
-      <div class="card">
-        <img src="rogozhin-thumb.jpg" alt="Вадим Рогожин" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="dossier-rogozhin.html">Вадим Рогожин — депутат-единоросс, бывший белоленточник, владелец информационной помойки «Четвёртая власть»</a></h3>
-        <div class="card-date">20.05.2026</div>
-      </div>
-      <div class="card">
-        <img src="gribov-thumb.jpg" alt="Роман Грибов" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="dossier-gribov.html">Роман Грибов – депутат-единоросс, куратор телеграм-помойки «Движ 64»</a></h3>
-        <div class="card-date">15.04.2026</div>
-      </div>
-    </div>
+    <div id="recent-dossiers" class="card-list"></div>
     <a href="dossier.html" class="more-link">→ Все досье</a>
   </div>
 
-  <!-- ==================== N ЧУДЕС ЗЕМЛИ САРАТОВСКОЙ ==================== -->
+  <!-- ЧУДЕСА САРАТОВА -->
   <div class="section">
     <h2>🌟 N чудес земли Саратовской</h2>
     <div class="section-desc">Экскурсия по памятникам коррупции региона. Почему N? Потому что список бесконечно пополняется, как и карманы коррупционеров.</div>
-    <div class="card-list">
+    <div id="wonders-list" class="card-list">
+      <!-- Примеры чудес (статически, позже можно вынести в JSON) -->
       <div class="card">
         <img src="wonder-teatr.jpg" alt="Долгострой театра" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="post-wonder-theater.html">Долгострой Саратовский театр балета и оперы</a></h3>
-        <div class="card-date">строится с 2011 года</div>
+        <h3><a href="post-wonder-theater.html">Долгострой Саратовского театра оперы и балета</a></h3>
+        <div class="card-date">Строится с 2011 года, миллиарды освоены, здание в руинах.</div>
       </div>
       <div class="card">
         <img src="wonder-camps.jpg" alt="Закрытые лагеря" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
         <h3><a href="post-lagerta.html">Закрытые детские лагеря на Кумысной поляне</a></h3>
-        <div class="card-date">апрель 2026</div>
+        <div class="card-date">Отдых детям запретили, а военные сборы оставили.</div>
       </div>
       <div class="card">
-        <img src="wonder-engels.jpg" alt="Канализационный коллапс" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
+        <img src="wonder-engels.jpg" alt="Энгельс фекалии" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
         <h3><a href="post-engels-fekalii.html">Канализационный коллапс в Энгельсе</a></h3>
-        <div class="card-date">май 2026</div>
+        <div class="card-date">Износ коллектора 85%, город залило нечистотами.</div>
       </div>
     </div>
     <a href="wonders.html" class="more-link">→ Все чудеса</a>
   </div>
 
-  <!-- ==================== ПОДПИСАТЬСЯ ==================== -->
+  <!-- ПОДПИСАТЬСЯ И ПОДЕЛИТЬСЯ -->
   <div class="section">
     <h2>📢 Подписаться</h2>
     <div class="section-desc">Если вам небезразлично, что происходит в Саратовской области — подписывайтесь на наш Telegram-канал. А также расскажите о нас своим близким, друзьям и коллегам. Правда не должна оставаться в узком кругу.</div>
@@ -333,16 +301,50 @@
     </div>
   </div>
 
-  <!-- ==================== ПОДВАЛ ==================== -->
+  <!-- ПОДВАЛ -->
   <footer>
-    <p>Свои материалы вы можете прислать нам на почту, анонимность гарантированна</p>
+    <p>Свои материалы вы можете прислать нам на почту, анонимность гарантирована</p>
     <p><a href="mailto:valshabash@proton.me" class="footer-email">valshabash@proton.me</a></p>
     <p style="margin-top: 15px;">© Шабаш Валькирии, 2025–2026</p>
   </footer>
 </div>
 
 <script>
-  // Функции для кнопок «поделиться» (работают на текущую страницу)
+  // Загрузка последних 5 новостей из posts.json
+  fetch('posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      // сортируем по дате (новые сверху)
+      const sorted = posts.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
+      const latest = sorted.slice(0,5);
+      const container = document.getElementById('recent-news');
+      container.innerHTML = latest.map(post => `
+        <div class="card">
+          <h3><a href="${post.url}">${post.title}</a></h3>
+          <div class="card-date">${post.date}</div>
+        </div>
+      `).join('');
+    })
+    .catch(e => console.error('Ошибка загрузки новостей', e));
+
+  // Загрузка последних 3 досье из dossiers.json (предполагается, что в dossiers.json есть поля url, title, date, thumb)
+  fetch('dossiers.json')
+    .then(r => r.json())
+    .then(dossiers => {
+      const sorted = dossiers.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
+      const latest = sorted.slice(0,3);
+      const container = document.getElementById('recent-dossiers');
+      container.innerHTML = latest.map(d => `
+        <div class="card">
+          <img src="${d.thumb || 'https://placehold.co/400x200?text=Без+фото'}" alt="${d.title}" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Без+фото'">
+          <h3><a href="${d.url}">${d.title}</a></h3>
+          <div class="card-date">${d.date}</div>
+        </div>
+      `).join('');
+    })
+    .catch(e => console.error('Ошибка загрузки досье', e));
+
+  // Функции для поделиться
   const currentUrl = encodeURIComponent(window.location.href);
   const title = encodeURIComponent('Шабаш Валькирии — анонимный аналитический канал');
 
@@ -374,4 +376,4 @@
   }
 </script>
 </body>
-</html>
+                                                                                  </html>
