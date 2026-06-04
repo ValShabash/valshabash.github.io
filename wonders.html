@@ -42,6 +42,7 @@
       background: #8b0000;
       color: white;
     }
+    /* Главная — красная */
     .top-nav a.active {
       background: #8b0000;
       color: white;
@@ -58,7 +59,13 @@
       color: #c9a87b;
       border-left: 5px solid #8b0000;
       padding-left: 20px;
+      margin-bottom: 15px;
+    }
+    .rubric-description {
+      color: #aaa;
       margin-bottom: 30px;
+      font-style: italic;
+      padding-left: 20px;
     }
     .wonders-grid {
       display: grid;
@@ -97,6 +104,12 @@
       color: #ffb347;
       text-decoration: underline;
     }
+    .wonder-short {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin: 8px 0;
+      line-height: 1.4;
+    }
     .wonder-date {
       font-size: 0.8rem;
       color: #8b6b4d;
@@ -121,19 +134,23 @@
 <body>
 <div class="container">
   <div class="top-nav">
-    <a href="index.html">Главная</a>
+    <a href="index.html" class="active">Главная</a>
     <a href="https://t.me/valshabash" target="_blank" class="telegram">📱 Telegram</a>
   </div>
   <h1>🌟 N чудес Саратова</h1>
+  <div class="rubric-description">
+    Экскурсия по памятникам коррупции Саратовской области. 
+  </div>
   <div class="wonders-grid">
     <div class="wonder-card">
-      <img src="wonder-teatr.jpg" alt="Долгострой театра" class="wonder-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-      <h3><a href="post-wonder-theater.html">Долгострой Саратовского театра оперы и балета</a></h3>
-      <div class="wonder-date">миллиарды освоены, здание в руинах</div>
+      <img src="teatr-opera-saratov.jpg" alt="Руины театра оперы и балета" class="wonder-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
+      <h3><a href="wonder-teatr-opera.html">Долгострой Саратовского театра оперы и балета</a></h3>
+      <div class="wonder-short">Миллиарды освоены, здание в руинах. </div>
+      <div class="wonder-date">4 июня 2026</div>
     </div>
-    <!-- Добавляйте новые чудеса сюда по такому же образцу -->
+    <!-- Следующие чудеса будут добавляться сюда -->
   </div>
   <a href="index.html" class="back-link">← На главную</a>
 </div>
 </body>
-</html>
+  </html>
