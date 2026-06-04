@@ -92,7 +92,7 @@
       font-size: 1.8rem;
       border-left: 5px solid #8b0000;
       padding-left: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: #d4b48c;
     }
     .section-desc {
@@ -100,7 +100,7 @@
       margin-bottom: 20px;
       font-style: italic;
     }
-    /* Карточки для новостей, досье, чудес */
+    /* Карточки */
     .card-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -168,31 +168,44 @@
       color: #ffb347;
       margin-bottom: 10px;
     }
-    /* Кнопки соцсетей */
-    .social-buttons {
+    /* Кнопки соцсетей (как в постах) */
+    .social-share {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
+      align-items: center;
       margin: 20px 0;
     }
-    .social-btn {
+    .social-icon {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: #2a1e12;
-      padding: 8px 16px;
-      border-radius: 40px;
-      color: #c9a87b;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: 0.2s;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      transition: transform 0.2s;
     }
-    .social-btn:hover {
+    .social-icon:hover {
+      transform: scale(1.1);
+    }
+    .social-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+    .share-native, .copy-link {
       background: #8b0000;
+      border: none;
       color: white;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: 0.2s;
+    }
+    .share-native:hover, .copy-link:hover {
+      background: #b22222;
     }
     footer {
       margin-top: 50px;
@@ -212,19 +225,22 @@
       .header-info h1 { font-size: 1.8rem; }
       .card-list { grid-template-columns: 1fr; }
       .section h2 { font-size: 1.5rem; }
+      .social-icon { width: 40px; height: 40px; }
+      .social-icon svg { width: 20px; height: 20px; }
+      .share-native, .copy-link { padding: 6px 16px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <!-- ШАПКА -->
+  <!-- ==================== ШАПКА КАНАЛА ==================== -->
   <div class="header">
     <div class="logo">
       <img src="logo.jpg" alt="Шабаш Валькирии">
     </div>
     <div class="header-info">
       <h1>Шабаш Валькирии</h1>
-      <p>Анонимный независимый канал, разоблачающий шабаш, что устроили власть имущие на земле Саратовской. Создан 4 февраля 2025 года. Канал специализируется на Саратовской региональной информационной обстановке. Команда не поддерживает ни одну из политических партий, выступает за население, поддерживает честность. На сайте вы можете найти оперативные новости, комментарии на злобу дня, расследования на чиновников Саратовской области, а также уникальные рубрики.</p>
+      <p>«Шабаш Валькирии» — анонимный независимый канал, разоблачающий шабаш, что устроили власть имущие на земле Саратовской. Создан 4 февраля 2025 года. Канал специализируется на Саратовской региональной информационной обстановке. Команда не поддерживает ни одну из политических партий, выступает за население, поддерживает честность. На сайте вы можете найти оперативные новости, комментарии на злобу дня, расследования на чиновников Саратовской области, а также уникальные рубрики.</p>
       <div class="header-buttons">
         <a href="mailto:valshabash@proton.me" class="btn">✉️ valshabash@proton.me</a>
         <a href="https://t.me/valshabash" target="_blank" class="btn">
@@ -235,7 +251,7 @@
     </div>
   </div>
 
-  <!-- АКЦИЯ #ЧестныеВыборы64 -->
+  <!-- ==================== АКЦИЯ #ЧестныеВыборы64 ==================== -->
   <div class="campaign-block">
     <h3>#ЧестныеВыборы64</h3>
     <p>Рейтинг «Единой России» упал ниже 30%, в Саратовской области партию поддерживают менее 20%. Честно победить на выборах партия не сможет, поэтому «Шабаш Валькирии» запускает акцию #ЧестныеВыборы64.</p>
@@ -243,137 +259,109 @@
     <a href="post-chestnye-vybory-64.html" class="more-link">Подробнее об акции →</a>
   </div>
 
-  <!-- АКТУАЛЬНЫЕ НОВОСТИ -->
+  <!-- ==================== АКТУАЛЬНЫЕ НОВОСТИ ==================== -->
   <div class="section">
     <h2>📰 Актуальные новости</h2>
     <div class="section-desc">Свежие материалы. Здесь вы узнаете о последних новостях Саратовской области без пропаганды и канцеляризмов. Оперативная информация в Telegram-канале <a href="https://t.me/valshabash" style="color:#c9a87b;">@valshabash</a>.</div>
-    <div id="recent-news" class="card-list"></div>
+    <div class="card-list">
+      <div class="card"><h3><a href="post-serezhenka-obidelsya.html">Серёженька обиделся</a></h3><div class="card-date">02.06.2026</div></div>
+      <div class="card"><h3><a href="post-itogi-praimeriz.html">Итоги праймериз</a></h3><div class="card-date">01.06.2026</div></div>
+      <div class="card"><h3><a href="post-optimizatsiya-po-saratovski.html">Оптимизация по-саратовски</a></h3><div class="card-date">28.05.2026</div></div>
+      <div class="card"><h3><a href="post-camp-instead-gadget.html">Детский лагерь — замена гаджету</a></h3><div class="card-date">19.05.2026</div></div>
+      <div class="card"><h3><a href="post-busargin-raznos.html">Бусаргин отчитал министров</a></h3><div class="card-date">18.05.2026</div></div>
+    </div>
     <a href="archive.html" class="more-link">→ Все новости</a>
   </div>
 
-  <!-- ДОСЬЕ -->
+  <!-- ==================== ДОСЬЕ ==================== -->
   <div class="section">
     <h2>📁 Досье</h2>
     <div class="section-desc">Коллекция портретов власть имущих, устроивших шабаш на Земле Саратовской. Обитатели политической кухни, забравшие обед у жителей.</div>
-    <div id="recent-dossiers" class="card-list"></div>
+    <div class="card-list">
+      <div class="card">
+        <img src="galyashkina.jpg" alt="Антонина Галяшкина" class="card-image">
+        <h3><a href="dossier-galyashkina.html">Антонина Галяшкина — депутатка-единоросска, сделавшая стремительную карьеру в свои 68</a></h3>
+        <div class="card-date">05.06.2026</div>
+      </div>
+      <div class="card">
+        <img src="rogozhin.jpg" alt="Вадим Рогожин" class="card-image">
+        <h3><a href="dossier-rogozhin.html">Вадим Рогожин — депутат-единоросс, бывший белоленточник, владелец информационной помойки «Четвёртая власть»</a></h3>
+        <div class="card-date">20.05.2026</div>
+      </div>
+      <div class="card">
+        <img src="gribov.jpg" alt="Роман Грибов" class="card-image">
+        <h3><a href="dossier-gribov.html">Роман Грибов – депутат-единоросс, куратор телеграм-помойки «Движ 64»</a></h3>
+        <div class="card-date">15.04.2026</div>
+      </div>
+    </div>
     <a href="dossier.html" class="more-link">→ Все досье</a>
   </div>
 
-  <!-- ЧУДЕСА САРАТОВА -->
+  <!-- ==================== N ЧУДЕС ЗЕМЛИ САРАТОВСКОЙ (только театр) ==================== -->
   <div class="section">
     <h2>🌟 N чудес земли Саратовской</h2>
     <div class="section-desc">Экскурсия по памятникам коррупции региона. Почему N? Потому что список бесконечно пополняется, как и карманы коррупционеров.</div>
-    <div id="wonders-list" class="card-list">
-      <!-- Примеры чудес (статически, позже можно вынести в JSON) -->
+    <div class="card-list">
       <div class="card">
         <img src="wonder-teatr.jpg" alt="Долгострой театра" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="post-wonder-theater.html">Долгострой Саратовского театра оперы и балета</a></h3>
-        <div class="card-date">Строится с 2011 года, миллиарды освоены, здание в руинах.</div>
-      </div>
-      <div class="card">
-        <img src="wonder-camps.jpg" alt="Закрытые лагеря" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="post-lagerta.html">Закрытые детские лагеря на Кумысной поляне</a></h3>
-        <div class="card-date">Отдых детям запретили, а военные сборы оставили.</div>
-      </div>
-      <div class="card">
-        <img src="wonder-engels.jpg" alt="Энгельс фекалии" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
-        <h3><a href="post-engels-fekalii.html">Канализационный коллапс в Энгельсе</a></h3>
-        <div class="card-date">Износ коллектора 85%, город залило нечистотами.</div>
+        <h3><a href="post-wonder-theater.html">Долгострой Саратовский театр балета и оперы</a></h3>
+        <div class="card-date">строится с 2011 года</div>
       </div>
     </div>
     <a href="wonders.html" class="more-link">→ Все чудеса</a>
   </div>
 
-  <!-- ПОДПИСАТЬСЯ И ПОДЕЛИТЬСЯ -->
+  <!-- ==================== ПОДПИСАТЬСЯ ==================== -->
   <div class="section">
     <h2>📢 Подписаться</h2>
     <div class="section-desc">Если вам небезразлично, что происходит в Саратовской области — подписывайтесь на наш Telegram-канал. А также расскажите о нас своим близким, друзьям и коллегам. Правда не должна оставаться в узком кругу.</div>
     <div style="margin: 20px 0;">
       <a href="https://t.me/valshabash" target="_blank" class="btn" style="background:#0088cc; color:white;">📱 Подписаться в Telegram</a>
     </div>
-    <div class="social-buttons">
-      <a href="#" id="shareVK" class="social-btn">ВКонтакте</a>
-      <a href="#" id="shareTG" class="social-btn">Telegram</a>
-      <a href="#" id="shareOK" class="social-btn">Одноклассники</a>
-      <a href="#" id="shareMAX" class="social-btn">MAX</a>
-      <button id="shareNativeBtn" class="social-btn">📤 Поделиться...</button>
-      <button id="copyLinkBtn" class="social-btn">🔗 Скопировать ссылку</button>
+    <!-- Иконки соцсетей (как в постах) -->
+    <div class="social-share">
+      <a href="#" id="shareVK" class="social-icon" style="background-color:#4680C2;" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm2.95 13.67h-1.14c-.54 0-.72-.27-1.07-.78-1.02-1.5-2.12-2.01-2.47-1.75-.4.3-.1 1.27-.1 1.63 0 .19-.06.42-.41.42h-.59c-1.88 0-3.36-1.57-4.18-2.97-1.02-1.74-2.07-5.16-2.07-5.72 0-.31.24-.55.55-.55h1.17c.4 0 .57.25.68.5.35.8.97 2.05 1.52 2.88.53.8 1.01 1.22 1.34.95.45-.37.33-1.78.33-2.42 0-.82-.21-1.44-1.1-1.59-.3-.05.2-.99.85-1.2.63-.2 2.17-.19 2.91.19.52.27.6.99.6 1.64 0 .83-.18 1.79.24 2.08.42.3.98-.09 1.68-1.24.46-.77.88-1.7 1.05-2.23.07-.22.29-.45.69-.45h1.18c.54 0 .65.27.52.67-.37 1.15-1.57 2.94-2.07 3.5-.56.63-.97 1.09-.23 1.87.82.87 1.4 1.96 1.89 2.89.16.3-.01.55-.37.55z"/></svg>
+      </a>
+      <a href="#" id="shareTG" class="social-icon" style="background-color:#0088cc;" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.283-1.434z"/></svg>
+      </a>
+      <a href="#" id="shareOK" class="social-icon" style="background-color:#F58220;" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 5c-3.17 0-6.12.93-8.42 2.54L2 16.77c2.34-1.7 5.23-2.77 8.5-2.77s6.16 1.07 8.5 2.77l-1.58 1.77c-2.3-1.61-5.25-2.54-8.42-2.54z"/></svg>
+      </a>
+      <a href="#" id="shareMAX" class="social-icon" style="background: linear-gradient(135deg, #2b5fc5, #a83de0);" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.91-9.91zm0 2.5c4.11 0 7.41 3.3 7.41 7.41 0 4.11-3.3 7.41-7.41 7.41-1.47 0-2.83-.43-4.01-1.15l-2.34.62.66-2.22c-.78-1.21-1.24-2.62-1.24-4.16 0-4.11 3.3-7.41 7.41-7.41z"/></svg>
+      </a>
+      <button id="shareNativeBtn" class="share-native">📤 Поделиться...</button>
+      <button id="copyLinkBtn" class="copy-link">🔗 Скопировать ссылку</button>
     </div>
   </div>
 
-  <!-- ПОДВАЛ -->
+  <!-- ==================== ПОДВАЛ ==================== -->
   <footer>
-    <p>Свои материалы вы можете прислать нам на почту, анонимность гарантирована</p>
+    <p>Свои материалы вы можете прислать нам на почту, анонимность гарантированна</p>
     <p><a href="mailto:valshabash@proton.me" class="footer-email">valshabash@proton.me</a></p>
     <p style="margin-top: 15px;">© Шабаш Валькирии, 2025–2026</p>
   </footer>
 </div>
 
 <script>
-  // Загрузка последних 5 новостей из posts.json
-  fetch('posts.json')
-    .then(r => r.json())
-    .then(posts => {
-      // сортируем по дате (новые сверху)
-      const sorted = posts.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
-      const latest = sorted.slice(0,5);
-      const container = document.getElementById('recent-news');
-      container.innerHTML = latest.map(post => `
-        <div class="card">
-          <h3><a href="${post.url}">${post.title}</a></h3>
-          <div class="card-date">${post.date}</div>
-        </div>
-      `).join('');
-    })
-    .catch(e => console.error('Ошибка загрузки новостей', e));
-
-  // Загрузка последних 3 досье из dossiers.json (предполагается, что в dossiers.json есть поля url, title, date, thumb)
-  fetch('dossiers.json')
-    .then(r => r.json())
-    .then(dossiers => {
-      const sorted = dossiers.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-')));
-      const latest = sorted.slice(0,3);
-      const container = document.getElementById('recent-dossiers');
-      container.innerHTML = latest.map(d => `
-        <div class="card">
-          <img src="${d.thumb || 'https://placehold.co/400x200?text=Без+фото'}" alt="${d.title}" class="card-image" onerror="this.src='https://placehold.co/400x200?text=Без+фото'">
-          <h3><a href="${d.url}">${d.title}</a></h3>
-          <div class="card-date">${d.date}</div>
-        </div>
-      `).join('');
-    })
-    .catch(e => console.error('Ошибка загрузки досье', e));
-
-  // Функции для поделиться
-  const currentUrl = encodeURIComponent(window.location.href);
+  const url = encodeURIComponent(window.location.href);
   const title = encodeURIComponent('Шабаш Валькирии — анонимный аналитический канал');
-
-  document.getElementById('shareVK')?.setAttribute('href', `https://vk.com/share.php?url=${currentUrl}&title=${title}`);
-  document.getElementById('shareTG')?.setAttribute('href', `https://t.me/share/url?url=${currentUrl}&text=${title}`);
-  document.getElementById('shareOK')?.setAttribute('href', `https://connect.ok.ru/offer?url=${currentUrl}&title=${title}`);
-  document.getElementById('shareMAX')?.setAttribute('href', `https://max.ru/share?text=${title}%20${currentUrl}`);
-
+  document.getElementById('shareVK').href = `https://vk.com/share.php?url=${url}&title=${title}`;
+  document.getElementById('shareTG').href = `https://t.me/share/url?url=${url}&text=${title}`;
+  document.getElementById('shareOK').href = `https://connect.ok.ru/offer?url=${url}&title=${title}`;
+  document.getElementById('shareMAX').href = `https://max.ru/share?text=${title}%20${url}`;
   const shareNative = document.getElementById('shareNativeBtn');
   if (shareNative) {
     shareNative.addEventListener('click', () => {
-      if (navigator.share) {
-        navigator.share({
-          title: 'Шабаш Валькирии',
-          text: 'Аналитический канал о Саратовской области',
-          url: window.location.href
-        }).catch(e => console.log('Отмена шаринга', e));
-      } else {
-        alert('Ваш браузер не поддерживает стандартную кнопку "Поделиться". Скопируйте ссылку.');
-      }
+      if (navigator.share) navigator.share({ title: 'Шабаш Валькирии', text: 'Аналитический канал о Саратовской области', url: window.location.href });
+      else alert('Ваш браузер не поддерживает стандартную кнопку "Поделиться".');
     });
   }
-
-  const copyLink = document.getElementById('copyLinkBtn');
-  if (copyLink) {
-    copyLink.addEventListener('click', () => {
-      navigator.clipboard.writeText(window.location.href).then(() => alert('Ссылка скопирована!')).catch(() => alert('Не удалось скопировать.'));
-    });
-  }
+  document.getElementById('copyLinkBtn').addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => alert('Ссылка скопирована!')).catch(() => alert('Не удалось скопировать.'));
+  });
 </script>
 </body>
-                                                                                  </html>
+  </html>
