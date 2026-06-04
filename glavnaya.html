@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шабаш Валькирии — аналитический канал о Саратовской области</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #0a0a0a;
+      background-image: radial-gradient(circle at 10% 20%, #2a0a0a 1px, transparent 1px);
+      background-size: 25px 25px;
+      color: #e6e6e6;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 30px 35px 45px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 0 1px #2e2e2e inset;
+    }
+    /* Шапка */
+    .site-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .logo {
+      max-width: 120px;
+      margin: 0 auto 15px;
+    }
+    .logo img {
+      width: 100%;
+      border-radius: 50%;
+      border: 2px solid #8b0000;
+      box-shadow: 0 0 12px rgba(139,0,0,0.6);
+    }
+    h1 {
+      font-size: 2.8rem;
+      color: #c9a87b;
+      text-shadow: 2px 2px 0 #4a0000;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      font-family: 'Palatino', 'Georgia', serif;
+    }
+    .site-description {
+      font-style: italic;
+      color: #9e7b5c;
+      margin-bottom: 15px;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .contact-links a {
+      color: #c9a87b;
+      background: #2a1e12;
+      padding: 6px 14px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .contact-links a:hover {
+      background: #8b0000;
+      color: white;
+    }
+    /* Разделы */
+    .section {
+      margin: 40px 0;
+    }
+    .section h2 {
+      font-size: 1.9rem;
+      border-left: 5px solid #8b0000;
+      padding-left: 20px;
+      margin-bottom: 20px;
+      color: #d4b48c;
+    }
+    .post-list, .dossier-list {
+      list-style: none;
+    }
+    .post-list li, .dossier-list li {
+      background: #222;
+      margin: 12px 0;
+      padding: 12px 20px;
+      border-left: 4px solid #8b0000;
+      border-radius: 0 12px 12px 0;
+      transition: 0.2s;
+    }
+    .post-list li:hover, .dossier-list li:hover {
+      background: #2c2c2c;
+      transform: translateX(6px);
+    }
+    .post-list a, .dossier-list a {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #e6d5b3;
+    }
+    .post-list a:hover, .dossier-list a:hover {
+      color: #ffb347;
+      text-decoration: underline;
+    }
+    .post-date, .dossier-date {
+      color: #8b6b4d;
+      font-size: 0.85rem;
+      margin-left: 12px;
+    }
+    .more-link {
+      display: inline-block;
+      margin-top: 15px;
+      background: #2a1e12;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #c9a87b;
+      text-decoration: none;
+    }
+    .more-link:hover {
+      background: #8b0000;
+      color: white;
+    }
+    .poll-widget {
+      background: #2a1e12;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #8b0000;
+      margin: 20px 0;
+    }
+    .share-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .share-button {
+      background: #8b0000;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .share-button:hover {
+      background: #b22222;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 40px;
+      border-top: 1px solid #2e2e2e;
+      padding-top: 20px;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      h1 { font-size: 2rem; }
+      .section h2 { font-size: 1.5rem; }
+      .post-list a, .dossier-list a { font-size: 1rem; }
+      .post-date, .dossier-date { font-size: 0.7rem; display: inline-block; margin-left: 5px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="site-header">
+    <div class="logo">
+      <img src="logo.jpg" alt="Шабаш Валькирии">
+    </div>
+    <h1>Шабаш Валькирии</h1>
+    <div class="site-description">Анонимный аналитический канал о политике, коррупции и общественных проблемах Саратовской области</div>
+    <div class="contact-links">
+      <a href="mailto:valshabash@proton.me">✉️ valshabash@proton.me</a>
+      <a href="https://t.me/valshabash" target="_blank">📱 Telegram-канал</a>
+    </div>
+  </div>
+
+  <!-- О канале -->
+  <div class="section">
+    <h2>📌 О канале</h2>
+    <p>«Шабаш Валькирии» — независимое журналистское расследование, посвящённое политической и коррупционной жизни Саратовской области. Мы публикуем досье на чиновников, анализируем решения власти, разоблачаем двойные стандарты. Никакой цензуры, только факты и здравая ирония.</p>
+  </div>
+
+  <!-- Последние публикации (5 штук) -->
+  <div class="section">
+    <h2>📰 Последние публикации</h2>
+    <div id="recent-posts"></div>
+    <a href="archive.html" class="more-link">→ Архив всех публикаций</a>
+  </div>
+
+  <!-- Последние досье (3 штуки) -->
+  <div class="section">
+    <h2>📁 Последние досье</h2>
+    <div id="recent-dossiers"></div>
+    <a href="dossier.html" class="more-link">→ Все досье</a>
+  </div>
+
+  <!-- Новая рубрика: Чудеса Саратова -->
+  <div class="section">
+    <h2>🌟 N чудес Саратова</h2>
+    <p>Памятники коррупции, долгострои, провалы ЖКХ и другие «чудеса» саратовской власти. Мы собираем самые вопиющие объекты, которые власти предпочли бы не замечать.</p>
+    <a href="wonders.html" class="more-link">→ Перейти к рубрике</a>
+  </div>
+
+  <!-- Актуальный опрос -->
+  <div class="section">
+    <h2>📊 Актуальный опрос</h2>
+    <div class="poll-widget">
+      <p style="margin-bottom: 10px;"><strong>За какую партию вы пойдете голосовать в сентябре?</strong></p>
+      <a href="ССЫЛКА_НА_ФОРМУ_ОПРОСА" target="_blank" class="more-link" style="background:#8b0000;">✅ Пройти опрос</a>
+      <p style="margin-top: 10px;"><a href="polls.html" style="color:#c9a87b;">→ Все опросы</a></p>
+    </div>
+  </div>
+
+  <!-- Юмористические мемуары -->
+  <div class="section">
+    <h2>📔 Мемуары саратовского мэра</h2>
+    <p>Интимные записки бывшего градоначальника, а ныне вице-губернатора. Ирония, сарказм и правда из первых рук.</p>
+    <a href="memoirs.html" class="more-link">→ Читать мемуары</a>
+  </div>
+
+  <!-- Поделиться сайтом -->
+  <div class="section">
+    <h2>📢 Поделиться сайтом</h2>
+    <div class="share-buttons">
+      <button id="shareSiteBtn" class="share-button">📤 Поделиться через...</button>
+      <button id="copySiteLinkBtn" class="share-button">🔗 Скопировать ссылку</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>Мы активно следим за информационным пространством региона и не дадим вас обмануть. Поделитесь нашим сайтом с друзьями — вместе мы разоблачаем шабаш власти.</p>
+    <p>Присылайте свои мысли, фото и видео: <span style="color:#c9a87b;">valshabash@proton.me</span> (анонимно).</p>
+  </footer>
+</div>
+
+<script>
+  // Загрузка последних 5 публикаций из posts.json
+  fetch('posts.json')
+    .then(r => r.json())
+    .then(posts => {
+      const recent = posts.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-'))).slice(0,5);
+      const container = document.getElementById('recent-posts');
+      let html = '<ul class="post-list">';
+      recent.forEach(post => {
+        html += `<li><a href="${post.url}">${post.title}</a><span class="post-date">(${post.date})</span></li>`;
+      });
+      html += '</ul>';
+      container.innerHTML = html;
+    })
+    .catch(e => console.error('Ошибка загрузки публикаций', e));
+
+  // Загрузка последних 3 досье из dossiers.json
+  fetch('dossiers.json')
+    .then(r => r.json())
+    .then(dossiers => {
+      const recentDoss = dossiers.sort((a,b) => new Date(b.date.split('.').reverse().join('-')) - new Date(a.date.split('.').reverse().join('-'))).slice(0,3);
+      const container = document.getElementById('recent-dossiers');
+      let html = '<ul class="dossier-list">';
+      recentDoss.forEach(d => {
+        html += `<li><a href="${d.url}">${d.title}</a><span class="dossier-date">(${d.date})</span></li>`;
+      });
+      html += '</ul>';
+      container.innerHTML = html;
+    })
+    .catch(e => console.error('Ошибка загрузки досье', e));
+
+  // Поделиться сайтом (Web Share API + копирование ссылки)
+  const shareBtn = document.getElementById('shareSiteBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Шабаш Валькирии',
+          text: 'Аналитический канал о политике и коррупции в Саратовской области',
+          url: window.location.href
+        }).catch(e => console.log('Ошибка шаринга', e));
+      } else {
+        alert('Ваш браузер не поддерживает стандартную кнопку "Поделиться". Скопируйте ссылку вручную.');
+      }
+    });
+  }
+  const copyBtn = document.getElementById('copySiteLinkBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => alert('Ссылка скопирована!')).catch(() => alert('Не удалось скопировать ссылку.'));
+    });
+  }
+</script>
+</body>
+</html>
