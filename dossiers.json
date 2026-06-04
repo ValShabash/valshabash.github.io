@@ -1,26 +1,38 @@
 [
   {
     "url": "dossier-gladkov.html",
-    "title": "Досье: Сергей Гладков",
+    "title": "Сергей Гладков",
     "date": "2026",
-    "tags": ["Гладков", "Ветров", "Петраков", "Щербакова", "Радаев", "Панков"]
+    "thumb": "gladkov.jpg"
   },
   {
     "url": "dossier-molchanov.html",
-    "title": "Досье: Игорь Молчанов",
+    "title": "Игорь Молчанов",
     "date": "2026",
-    "tags": ["Молчанов", "Исаев", "Боркун", "Хриченко", "Путин", "Володин", "Бусаргин"]
+    "thumb": "molchanov.jpg"
   },
   {
     "url": "dossier-gribov.html",
-    "title": "Досье: Роман Грибов",
+    "title": "Роман Грибов",
     "date": "2026",
-    "tags": ["Грибов", "Панков", "Налимова"]
+    "thumb": "gribov.jpg"
   },
   {
     "url": "dossier-litnevskaya.html",
-    "title": "Досье: Юлия Литневская",
+    "title": "Юлия Литневская",
     "date": "2026",
-    "tags": ["Литневская", "Усанкин", "Радаев", "Писной", "Воробьев", "Филипенко", "Лыков", "Мухина", "Налимова"]
+    "thumb": "litnevskaya.jpg"
+  },
+  {
+    "url": "dossier-rogozhin.html",
+    "title": "Вадим Рогожин",
+    "date": "20.05.2026",
+    "thumb": "rogozhin.jpg"
+  },
+  {
+    "url": "dossier-galyashkina.html",
+    "title": "Антонина Галяшкина",
+    "date": "05.06.2026",
+    "thumb": "galyashkina.jpg"
   }
 ]
