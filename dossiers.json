@@ -3,30 +3,35 @@
     "url": "dossier-gladkov.html",
     "title": "Сергей Гладков",
     "date": "10.02.2026",
-    "thumb": "gladkov.jpg"
+    "thumb": "gladkov.jpg",
+    "description": "Депутат-единоросс, куратор телеграм-помойки «На заборе тоже пишут»"
   },
   {
     "url": "dossier-gribov.html",
     "title": "Роман Грибов",
     "date": "03.03.2026",
-    "thumb": "gribov.jpg"
+    "thumb": "gribov.jpg",
+    "description": "Депутат-единоросс, куратор телеграм-помойки «Движ 64»"
   },
   {
     "url": "dossier-litnevskaya.html",
     "title": "Юлия Литневская",
     "date": "18.03.2026",
-    "thumb": "litnevskaya.jpg"
+    "thumb": "litnevskaya.jpg",
+    "description": "Депутат-единоросс, бывшая владелица канала «ХЗ»"
   },
   {
     "url": "dossier-rogozhin.html",
     "title": "Вадим Рогожин",
     "date": "20.05.2026",
-    "thumb": "rogozhin.jpg"
+    "thumb": "rogozhin.jpg",
+    "description": "Депутат-единоросс, бывший белоленточник, владелец информационной помойки «Четвёртой власти»"
   },
   {
     "url": "dossier-galyashkina.html",
     "title": "Антонина Галяшкина",
     "date": "05.06.2026",
-    "thumb": "galyashkina.jpg"
+    "thumb": "galyashkina.jpg",
+    "description": "Депутатка-единоросска, сделавшая стремительную карьеру в свои 68"
   }
 ]
