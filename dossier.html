@@ -42,7 +42,8 @@
       background: #8b0000;
       color: white;
     }
-    top-nav a:active {
+    /* Главная — красная (активная) */
+    .top-nav a.active {
       background: #8b0000;
       color: white;
     }
@@ -87,7 +88,7 @@
     }
     .dossier-card h3 {
       font-size: 1.2rem;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
     .dossier-card h3 a {
       color: #e6d5b3;
@@ -96,6 +97,12 @@
     .dossier-card h3 a:hover {
       color: #ffb347;
       text-decoration: underline;
+    }
+    .dossier-description {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 8px;
+      line-height: 1.4;
     }
     .dossier-date {
       font-size: 0.8rem;
@@ -121,7 +128,7 @@
 <body>
 <div class="container">
   <div class="top-nav">
-    <a href="index.html">Главная</a>
+    <a href="index.html" class="active">Главная</a>
     <a href="https://t.me/valshabash" target="_blank" class="telegram">📱 Telegram</a>
   </div>
   <h1>Все досье</h1>
@@ -133,7 +140,6 @@
   fetch('dossiers.json')
     .then(r => r.json())
     .then(dossiers => {
-      // Сортировка по дате (новые сверху)
       dossiers.sort((a,b) => {
         const dateA = a.date.split('.').reverse().join('-');
         const dateB = b.date.split('.').reverse().join('-');
@@ -144,6 +150,7 @@
         <div class="dossier-card">
           <img src="${d.thumb}" alt="${d.title}" class="dossier-image" onerror="this.src='https://placehold.co/400x200?text=Нет+фото'">
           <h3><a href="${d.url}">${d.title}</a></h3>
+          <div class="dossier-description">${d.description || ''}</div>
           <div class="dossier-date">${d.date}</div>
         </div>
       `).join('');
